@@ -37,10 +37,10 @@ public:
 		/* Bits ILim: */
 		/*
 		 * the maximum current that will be drawn from the VBUS pin in the event that the load at
-		 *           VOUT (battery charger plus systemload) exceeds the power
-		 *           available. Any additional power will be drawn from the battery.
-		 *           The default state for the input current limit setting is
-		 *           000, representing the low power 100mA USB setting. 
+		 * VOUT (battery charger plus systemload) exceeds the power
+		 * available. Any additional power will be drawn from the battery.
+		 * The default state for the input current limit setting is
+		 * 000, representing the low power 100mA USB setting.
 		 */
 		struct ILim
 		{
@@ -58,12 +58,12 @@ public:
 		/* Bits ICharge: */
 		/*
 		 * The battery charger current settings are adjusted
-		 *           by selecting one of the eight servo voltages for the PROG
-		 *           pin. Recall that the programmed charge current is given
-		 *           by the expression:
-		 *           ICHG = VPROG / RPROG * 1030
-		 *           The default state forthe battery charger current settings is
-		 *           000, giving the lowest available servo voltage of 500mV 
+		 * by selecting one of the eight servo voltages for the PROG
+		 * pin. Recall that the programmed charge current is given
+		 * by the expression:
+		 * ICHG = VPROG / RPROG * 1030
+		 * The default state forthe battery charger current settings is
+		 * 000, giving the lowest available servo voltage of 500mV
 		 */
 		struct ICharge
 		{
@@ -81,14 +81,14 @@ public:
 		/* Bits COVERX: */
 		/*
 		 * The C/x setting controls the PROG pin level that the
-		 *           LTC4099’s C/x comparator uses to report full capacity
-		 *           charge. For example, if the 100mV setting is chosen, then
-		 *           the LTC4099 reports that its PROG pin voltage has fallen
-		 *           below 100mV. For the 50mV setting, LTC4099 reports
-		 *           that its PROG pin voltage has fallen below 50mV. The C/x
-		 *           settings are adjusted by comparing the PROG pin voltage
-		 *           with the values shows in Table 4. The default value for the
-		 *           C/x setting is 00, giving 100mV detection. 
+		 * LTC4099’s C/x comparator uses to report full capacity
+		 * charge. For example, if the 100mV setting is chosen, then
+		 * the LTC4099 reports that its PROG pin voltage has fallen
+		 * below 100mV. For the 50mV setting, LTC4099 reports
+		 * that its PROG pin voltage has fallen below 50mV. The C/x
+		 * settings are adjusted by comparing the PROG pin voltage
+		 * with the values shows in Table 4. The default value for the
+		 * C/x setting is 00, giving 100mV detection.
 		 */
 		struct COVERX
 		{
@@ -129,10 +129,10 @@ public:
 		/* Bits TIMER: */
 		/*
 		 * The TIMER2–TIMER0 bits control the duration of the battery
-		 *           charger safety timer. The safety timer starts once the
-		 *           LTC4099 reaches the 4.100V or the 4.200V float voltage.
-		 *           As long as input power is available, charging will continue
-		 *           in float voltage mode until the safety timer expires. 
+		 * charger safety timer. The safety timer starts once the
+		 * LTC4099 reaches the 4.100V or the 4.200V float voltage.
+		 * As long as input power is available, charging will continue
+		 * in float voltage mode until the safety timer expires.
 		 */
 		struct TIMER
 		{
@@ -150,11 +150,11 @@ public:
 		/* Bits DISABLE_CHARGER: */
 		/*
 		 * The DISABLE_CHARGER bit can be used to prevent battery
-		 *           charging if needed. This bit should be used with caution
-		 *           as it can prevent the battery charger from bringing up
-		 *           the battery voltage. Without the ability to address the I2C
-		 *           port, only a low voltage on DVCC will clear the I
-		 *           2C port to its default state and re-enable charging. 
+		 * charging if needed. This bit should be used with caution
+		 * as it can prevent the battery charger from bringing up
+		 * the battery voltage. Without the ability to address the I2C
+		 * port, only a low voltage on DVCC will clear the I
+		 * 2C port to its default state and re-enable charging.
 		 */
 		struct DISABLE_CHARGER
 		{
@@ -163,9 +163,9 @@ public:
 		/* Bits ENABLE_BATTERY_CONDITIONER: */
 		/*
 		 * The ENABLE_BATTERY_CONDITIONER bit enables the
-		 *           automatic battery load circuit in the event of simultaneously
-		 *           high battery voltage and temperature. See the Overtemperature
-		 *           Battery Conditioner section. 
+		 * automatic battery load circuit in the event of simultaneously
+		 * high battery voltage and temperature. See the Overtemperature
+		 * Battery Conditioner section.
 		 */
 		struct ENABLE_BATTERY_CONDITIONER
 		{
@@ -174,9 +174,9 @@ public:
 		/* Bits VFLOAT: */
 		/*
 		 * The VFLOAT = 4.2V bit controls the final float voltage of the
-		 *           LTC4099’s battery charger. A 1 in this bit position changes
-		 *           the charger from the default float voltage value of 4.100V
-		 *           to the higher 4.200V level. 
+		 * LTC4099’s battery charger. A 1 in this bit position changes
+		 * the charger from the default float voltage value of 4.100V
+		 * to the higher 4.200V level.
 		 */
 		struct VFLOAT
 		{
@@ -185,12 +185,12 @@ public:
 		/* Bits TREG: */
 		/*
 		 * The TREG = 85°C control bit changes the LTC4099’s battery
-		 *           charger junction thermal regulation temperature from its
-		 *           default value of 105°C to a lower setting of 85°C. This may
-		 *           be used to reduce heat in highly thermally compromised
-		 *           systems. In general, the high efficiency charging system
-		 *           of the LTC4099 will keep the junction temperature low
-		 *           enough to avoid junction thermal regulation. 
+		 * charger junction thermal regulation temperature from its
+		 * default value of 105°C to a lower setting of 85°C. This may
+		 * be used to reduce heat in highly thermally compromised
+		 * systems. In general, the high efficiency charging system
+		 * of the LTC4099 will keep the junction temperature low
+		 * enough to avoid junction thermal regulation.
 		 */
 		struct TREG
 		{
@@ -225,12 +225,12 @@ public:
 	/*
 	 * REG IRQ_MASK:
 	 * A 1 written to a given position in the mask
-	 *       register allows status change in that category to generate
-	 *       an interrupt. A zero in a given position in the mask register
-	 *       prohibits the generation of an interrupt. The start-up state
-	 *       of the LTC4099 is all zeros for this register indicating that
-	 *       no interrupts will be generated without explicit request via
-	 *       the I2C port. See the Interrupt Generation section. 
+	 * register allows status change in that category to generate
+	 * an interrupt. A zero in a given position in the mask register
+	 * prohibits the generation of an interrupt. The start-up state
+	 * of the LTC4099 is all zeros for this register indicating that
+	 * no interrupts will be generated without explicit request via
+	 * the I2C port. See the Interrupt Generation section.
 	 */
 	struct IRQ_MASK
 	{
@@ -302,7 +302,7 @@ public:
 	/*
 	 * REG OUTPUT:
 	 * One status byte may be read from the LTC4099.
-	 *       A 1 read back in any of the bit positions indicates that the condition is true. 
+	 * A 1 read back in any of the bit positions indicates that the condition is true.
 	 */
 	struct OUTPUT
 	{
@@ -311,8 +311,8 @@ public:
 		/* Bits USBGOOD: */
 		/*
 		 * indicates the presence of power at VBUS. Criteria for determining this status bit
-		 *           is derived from the undervoltage lockout circuit on VBUS and is given by the
-		 *           electrical parameters VUVLO and VDUVLO. 
+		 * is derived from the undervoltage lockout circuit on VBUS and is given by the
+		 * electrical parameters VUVLO and VDUVLO.
 		 */
 		struct USBGOOD
 		{
@@ -321,10 +321,10 @@ public:
 		/* Bits WALLGOOD: */
 		/*
 		 * indicates the presence of voltage available at the WALL pin and is derived from
-		 *           the WALL undervoltage lockout circuit. Like the VBUS pin, this pin has both an
-		 *           absolute voltage detection level given by the electrical parameter VWALL, as well
-		 *           as a level relative to BAT given by ΔVWALL. Both of the conditions must be met for
-		 *           bit 6 to indicate the presence of power at WALL. 
+		 * the WALL undervoltage lockout circuit. Like the VBUS pin, this pin has both an
+		 * absolute voltage detection level given by the electrical parameter VWALL, as well
+		 * as a level relative to BAT given by ΔVWALL. Both of the conditions must be met for
+		 * bit 6 to indicate the presence of power at WALL.
 		 */
 		struct WALLGOOD
 		{
@@ -333,12 +333,12 @@ public:
 		/* Bits BADCELL: */
 		/*
 		 * indicates that the battery has been below the pre- charge threshold level of approximately
-		 *           2.85V for more than one-half hour while the charger was attempting to charge. When this occurs,
-		 *           it is usually the result of a defective cell. However, in some cases a bad cell indication
-		 *           may be caused by system load prioritization over battery charging. System software can test
-		 *           for this by forcing a reduction of system load and restarting the battery charger via I2C
-		 *           (a disable followed by an enable). If the bad cell indication returns, then the cell is
-		 *           definitively bad.
+		 * 2.85V for more than one-half hour while the charger was attempting to charge. When this occurs,
+		 * it is usually the result of a defective cell. However, in some cases a bad cell indication
+		 * may be caused by system load prioritization over battery charging. System software can test
+		 * for this by forcing a reduction of system load and restarting the battery charger via I2C
+		 * (a disable followed by an enable). If the bad cell indication returns, then the cell is
+		 * definitively bad.
 		 */
 		struct BADCELL
 		{
@@ -347,9 +347,9 @@ public:
 		/* Bits THERMAL_REG: */
 		/*
 		 * indicates that the battery charger is in thermal regulation due to excessive LTC4099
-		 *           junction temperature. Recall that there are two I2C programmable junction temperature
-		 *           settings available at which to regulate, 85°C and 105°C. Bit 4 indicates thermal regulation
-		 *           at whichever setting is chosen. 
+		 * junction temperature. Recall that there are two I2C programmable junction temperature
+		 * settings available at which to regulate, 85°C and 105°C. Bit 4 indicates thermal regulation
+		 * at whichever setting is chosen.
 		 */
 		struct THERMAL_REG
 		{
@@ -373,19 +373,19 @@ public:
 			static const uint8_t CHARGER_OFF = 0b00; // 
 			/*
 			 * The constant-current state indicates that the battery charger is attempting to charge with
-			 *               all available current up to the constant-current level programmed, and that the battery has
-			 *               not yet reached the  oat voltage.
+			 * all available current up to the constant-current level programmed, and that the battery has
+			 * not yet reached the  oat voltage.
 			 */
 			static const uint8_t CONSTANT_CURRENT = 0b01;
 			/*
 			 * The CONSTANT V, IBAT > C/x bit indicates that the battery charger has entered the float voltage
-			 *              phase of charging (BAT at 4.1V or 4.2V), but that the charge current is still above the C/x
-			 *              detection level programmed. 
+			 * phase of charging (BAT at 4.1V or 4.2V), but that the charge current is still above the C/x
+			 * detection level programmed.
 			 */
 			static const uint8_t CONSTANT_V_GREATER = 0b10;
 			/*
 			 * The CONSTANT V, IBAT <C/x bit indicates that the battery charge current has dropped below
-			 *               the C/x detection level programmed 
+			 * the C/x detection level programmed
 			 */
 			static const uint8_t CONSTANT_V_LESS = 0b11;
 		};
